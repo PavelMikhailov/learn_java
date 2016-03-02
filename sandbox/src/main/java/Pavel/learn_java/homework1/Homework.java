@@ -14,7 +14,8 @@ public class Homework {
     Point p2 = new Point(2, 8);
     System.out.println("p2 = " + p2.x + ", " + p2.y);
     System.out.println("Длинна прямой между точками р1 (" + p1.x + ", " + p1.y + ") и р2 (" + p2.x + ", " + p2.y +") = " + distance(p1, p2));
-    System.out.println("Длинна прямой между точками р1 (" + p1.x + ", " + p1.y + ") и р2 (" + p2.x + ", " + p2.y +") = " + .distance());
+    double d = p1.distance(p2);
+    System.out.println("Длинна прямой между точками р1 (" + p1.x + ", " + p1.y + ") и р2 (" + p2.x + ", " + p2.y +") = " + p1.distance(p2));
   }
 
   public static double distance(Point p1, Point p2){
