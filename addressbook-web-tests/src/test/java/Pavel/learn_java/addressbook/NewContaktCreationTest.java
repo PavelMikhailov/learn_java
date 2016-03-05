@@ -32,7 +32,7 @@ public class NewContaktCreationTest {
     }
 
     @Test
-    public void NewContaktCreationTest() {
+    public void testNewContaktCreation() {
         newContaktCreation();
         fillContaktForm(new ContaktData("Ivan", "II", "Ivanov", "Vanya", "employee", "Company", "address", "4444444", "5555555", "6666666", "7777777", "ivan.ivanovii.@company.com", "ivan@home.ru", "ivan@hame2.ru", "www.ivan.ru", "Address", "Number", "edit"));
         submitNewContakt();
