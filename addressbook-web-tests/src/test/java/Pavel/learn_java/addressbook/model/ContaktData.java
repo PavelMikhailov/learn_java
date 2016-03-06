@@ -1,4 +1,4 @@
-package Pavel.learn_java.addressbook;
+package Pavel.learn_java.addressbook.model;
 
 public class ContaktData {
   private final String name;

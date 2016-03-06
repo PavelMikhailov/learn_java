@@ -1,4 +1,4 @@
-package Pavel.learn_java.addressbook;
+package Pavel.learn_java.addressbook.model;
 
 public class GroupData {
   private final String name;
