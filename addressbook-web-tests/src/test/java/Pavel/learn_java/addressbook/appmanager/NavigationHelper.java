@@ -3,9 +3,7 @@ package Pavel.learn_java.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-/**
- * Created by Pavel on 07.03.2016.
- */
+
 public class NavigationHelper extends HelperBase {
 
   public NavigationHelper(FirefoxDriver wd) {
@@ -14,5 +12,9 @@ public class NavigationHelper extends HelperBase {
 
   public void gotoGroupPage() {
     click(By.linkText("groups"));
+  }
+
+  public void returnToHomePage() {
+    click(By.linkText("home page"));
   }
 }

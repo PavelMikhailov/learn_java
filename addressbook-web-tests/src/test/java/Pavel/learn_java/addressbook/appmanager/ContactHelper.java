@@ -4,9 +4,6 @@ import Pavel.learn_java.addressbook.model.ContaktData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-/**
- * Created by Pavel on 07.03.2016.
- */
 public class ContactHelper extends HelperBase {
 
   public ContactHelper(FirefoxDriver wd) {
@@ -14,8 +11,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void submitNewContakt() {
-    click(By.xpath("//div[@id='content']/form/input[21]"))
-    ;
+    click(By.xpath("//div[@id='content']/form/input[21]"));
   }
 
   public void fillContaktForm(ContaktData ContaktData) {
@@ -41,5 +37,23 @@ public class ContactHelper extends HelperBase {
 
   public void newContaktCreation() {
     click(By.linkText("add new"));
+  }
+
+  public void selectContact() {
+    click(By.id("13"));
+  }
+
+  public void deleteContact() {
+    click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
+  }
+
+  public void initContactModification(){
+    click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+
+  }
+
+  public void submitContaktModification() {
+    click(By.xpath("//div[@id='content']/form[1]/input[22]"));
+
   }
 }
