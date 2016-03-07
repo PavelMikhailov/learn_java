@@ -4,10 +4,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class HeplerBase {
+/**
+ * Created by Pavel on 07.03.2016.
+ */
+public class HelperBase {
   protected FirefoxDriver wd;
 
-  public HeplerBase(FirefoxDriver wd) {
+  public HelperBase(FirefoxDriver wd) {
     this.wd = wd;
   }
 
@@ -29,4 +32,5 @@ public class HeplerBase {
       return false;
     }
   }
+
 }

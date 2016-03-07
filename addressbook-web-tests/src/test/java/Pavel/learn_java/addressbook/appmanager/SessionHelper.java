@@ -3,9 +3,13 @@ package Pavel.learn_java.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class SessionHelper extends HeplerBase{
+/**
+ * Created by Pavel on 07.03.2016.
+ */
+public class SessionHelper extends HelperBase{
 
   public SessionHelper(FirefoxDriver wd) {
+
     super(wd);
   }
 
@@ -14,5 +18,4 @@ public class SessionHelper extends HeplerBase{
     type(By.name("pass"), password);
     click(By.xpath("//form[@id='LoginForm']/input[3]"));
   }
-
 }
