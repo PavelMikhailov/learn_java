@@ -49,7 +49,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void selectContact() {
-    click(By.id("13"));
+    click(By.id("38"));
   }
 
   public void deleteContact() {
@@ -64,5 +64,38 @@ public class ContactHelper extends HelperBase {
   public void submitContaktModification() {
     click(By.xpath("//div[@id='content']/form[1]/input[22]"));
 
+  }
+
+  public void createContact(contactData contact) {
+    newContaktCreation();
+    fillContaktForm(contact);
+    submitNewContakt();
+    returnToHomePage();
+
+  }
+
+  private void fillContaktForm(contactData contactData) {
+    type(By.name("firstname"), contactData.getName());
+    type(By.name("middlename"), contactData.getMiddlename());
+    type(By.name("lastname"), contactData.getLastname());
+    type(By.name("nickname"), contactData.getNickname());
+    type(By.name("title"), contactData.getTitle());
+    type(By.name("company"), contactData.getCompany());
+    type(By.name("address"), contactData.getWorkaddress());
+    type(By.name("home"), contactData.getHomenumber());
+    type(By.name("mobile"), contactData.getMobilenumber());
+    type(By.name("work"), contactData.getWorknumber());
+    type(By.name("fax"), contactData.getFaxnumber());
+    type(By.name("email"), contactData.getEmail1());
+    type(By.name("email2"), contactData.getEmail2());
+    type(By.name("email3"), contactData.getEmail3());
+    type(By.name("homepage"), contactData.getHomepage());
+    type(By.name("address2"), contactData.getHomeaddress());
+    type(By.name("phone2"), contactData.getHousenumber());
+    type(By.name("notes"), contactData.getNotes());
+  }
+
+  public boolean isThereAContact() {
+    return isElementPresent(By.id("38"));
   }
 }
