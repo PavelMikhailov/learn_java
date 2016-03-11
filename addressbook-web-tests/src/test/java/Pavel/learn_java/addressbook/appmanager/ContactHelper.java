@@ -49,7 +49,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void selectContact() {
-    click(By.id("38"));
+    click(By.id("51"));
   }
 
   public void deleteContact() {
@@ -96,6 +96,6 @@ public class ContactHelper extends HelperBase {
   }
 
   public boolean isThereAContact() {
-    return isElementPresent(By.id("38"));
+    return isElementPresent(By.id("51"));
   }
 }
