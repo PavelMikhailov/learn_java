@@ -1,6 +1,6 @@
 package Pavel.learn_java.addressbook.model;
 
-public class contactData {
+public class ContactData {
   private final String name;
   private final String middlename;
   private final String lastname;
@@ -21,7 +21,7 @@ public class contactData {
   private final String housenumber;
   private final String notes;
 
-  public contactData(String name, String middlename, String lastname, String nickname, String title, String company, String workaddress, String homenumber, String mobilenumber, String worknumber, String faxnumber, String email1, String email2, String email3, String homepage, String group, String homeaddress, String housenumber, String notes) {
+  public ContactData(String name, String middlename, String lastname, String nickname, String title, String company, String workaddress, String homenumber, String mobilenumber, String worknumber, String faxnumber, String email1, String email2, String email3, String homepage, String group, String homeaddress, String housenumber, String notes) {
     this.name = name;
     this.middlename = middlename;
     this.lastname = lastname;

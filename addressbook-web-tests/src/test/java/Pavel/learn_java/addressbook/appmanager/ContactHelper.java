@@ -1,11 +1,14 @@
 package Pavel.learn_java.addressbook.appmanager;
 
-import Pavel.learn_java.addressbook.model.contactData;
+import Pavel.learn_java.addressbook.model.ContactData;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelper extends HelperBase {
 
@@ -17,28 +20,28 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("//div[@id='content']/form/input[21]"));
   }
 
-  public void fillContaktForm(contactData contactData, boolean creation) {
-    type(By.name("firstname"), contactData.getName());
-    type(By.name("middlename"), contactData.getMiddlename());
-    type(By.name("lastname"), contactData.getLastname());
-    type(By.name("nickname"), contactData.getNickname());
-    type(By.name("title"), contactData.getTitle());
-    type(By.name("company"), contactData.getCompany());
-    type(By.name("address"), contactData.getWorkaddress());
-    type(By.name("home"), contactData.getHomenumber());
-    type(By.name("mobile"), contactData.getMobilenumber());
-    type(By.name("work"), contactData.getWorknumber());
-    type(By.name("fax"), contactData.getFaxnumber());
-    type(By.name("email"), contactData.getEmail1());
-    type(By.name("email2"), contactData.getEmail2());
-    type(By.name("email3"), contactData.getEmail3());
-    type(By.name("homepage"), contactData.getHomepage());
-    type(By.name("address2"), contactData.getHomeaddress());
-    type(By.name("phone2"), contactData.getHousenumber());
-    type(By.name("notes"), contactData.getNotes());
+  public void fillContaktForm(ContactData ContactData, boolean creation) {
+    type(By.name("firstname"), ContactData.getName());
+    type(By.name("middlename"), ContactData.getMiddlename());
+    type(By.name("lastname"), ContactData.getLastname());
+    type(By.name("nickname"), ContactData.getNickname());
+    type(By.name("title"), ContactData.getTitle());
+    type(By.name("company"), ContactData.getCompany());
+    type(By.name("address"), ContactData.getWorkaddress());
+    type(By.name("home"), ContactData.getHomenumber());
+    type(By.name("mobile"), ContactData.getMobilenumber());
+    type(By.name("work"), ContactData.getWorknumber());
+    type(By.name("fax"), ContactData.getFaxnumber());
+    type(By.name("email"), ContactData.getEmail1());
+    type(By.name("email2"), ContactData.getEmail2());
+    type(By.name("email3"), ContactData.getEmail3());
+    type(By.name("homepage"), ContactData.getHomepage());
+    type(By.name("address2"), ContactData.getHomeaddress());
+    type(By.name("phone2"), ContactData.getHousenumber());
+    type(By.name("notes"), ContactData.getNotes());
 
     if (creation){
-      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(ContactData.getGroup());
       } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
@@ -66,7 +69,7 @@ public class ContactHelper extends HelperBase {
 
   }
 
-  public void createContact(contactData contact) {
+  public void createContact(ContactData contact) {
     newContaktCreation();
     fillContaktForm(contact);
     submitNewContakt();
@@ -74,26 +77,33 @@ public class ContactHelper extends HelperBase {
 
   }
 
-  private void fillContaktForm(contactData contactData) {
-    type(By.name("firstname"), contactData.getName());
-    type(By.name("middlename"), contactData.getMiddlename());
-    type(By.name("lastname"), contactData.getLastname());
-    type(By.name("nickname"), contactData.getNickname());
-    type(By.name("title"), contactData.getTitle());
-    type(By.name("company"), contactData.getCompany());
-    type(By.name("address"), contactData.getWorkaddress());
-    type(By.name("home"), contactData.getHomenumber());
-    type(By.name("mobile"), contactData.getMobilenumber());
-    type(By.name("work"), contactData.getWorknumber());
-    type(By.name("fax"), contactData.getFaxnumber());
-    type(By.name("email"), contactData.getEmail1());
-    type(By.name("email2"), contactData.getEmail2());
-    type(By.name("email3"), contactData.getEmail3());
-    type(By.name("homepage"), contactData.getHomepage());
-    type(By.name("address2"), contactData.getHomeaddress());
-    type(By.name("phone2"), contactData.getHousenumber());
-    type(By.name("notes"), contactData.getNotes());
+  private void fillContaktForm(ContactData ContactData) {
+    type(By.name("firstname"), ContactData.getName());
+    type(By.name("middlename"), ContactData.getMiddlename());
+    type(By.name("lastname"), ContactData.getLastname());
+    type(By.name("nickname"), ContactData.getNickname());
+    type(By.name("title"), ContactData.getTitle());
+    type(By.name("company"), ContactData.getCompany());
+    type(By.name("address"), ContactData.getWorkaddress());
+    type(By.name("home"), ContactData.getHomenumber());
+    type(By.name("mobile"), ContactData.getMobilenumber());
+    type(By.name("work"), ContactData.getWorknumber());
+    type(By.name("fax"), ContactData.getFaxnumber());
+    type(By.name("email"), ContactData.getEmail1());
+    type(By.name("email2"), ContactData.getEmail2());
+    type(By.name("email3"), ContactData.getEmail3());
+    type(By.name("homepage"), ContactData.getHomepage());
+    type(By.name("address2"), ContactData.getHomeaddress());
+    type(By.name("phone2"), ContactData.getHousenumber());
+    type(By.name("notes"), ContactData.getNotes());
   }
+
+ public void returnToHomePage() {
+if (isElementPresent(By.id("maintable"))){
+       return;
+    }
+  click(By.linkText("home page"));
+ }
 
   public boolean isThereAContact() {
     return isElementPresent(By.name("selected[]"));
@@ -101,5 +111,18 @@ public class ContactHelper extends HelperBase {
 
   public int getContactCount() {
     return wd.findElements(By.name("selected[]")).size();
+  }
+
+  public List<ContactData> getContactList() {
+    List<ContactData> contacts = new ArrayList<ContactData>();
+    List<WebElement> elements = wd.findElements(By.name("selected[]"));
+    for (WebElement element : elements) {
+      String name = element.getText();
+      String lastname = element.getText();
+      String address = element.getText();
+      ContactData contact = new ContactData(name,lastname,address,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
+      contacts.add(contact);
+    }
+    return contacts;
   }
 }

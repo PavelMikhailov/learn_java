@@ -57,11 +57,11 @@ public class HelperBase {
       return false;
     }
   }
-
-  public void returnToHomePage() {
-    if (isElementPresent(By.id("maintable"))){
-        return;
-      }
-      click(By.linkText("home page"));
-    }
+//Возврат на главную страницу через линк, после создания, модификации контакта. Пока не используется.
+//  public void returnToHomePage() {
+ //   if (isElementPresent(By.id("maintable"))){
+ //       return;
+  //    }
+   //   click(By.linkText("home page"));
+   // }
   }
